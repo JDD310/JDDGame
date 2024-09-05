@@ -1,0 +1,989 @@
+{
+    "menus": {
+        "Main_Menu": {
+            "type": 1,
+            "title": "Welcome to the Adventure RPG!",
+            "prompt": "Select an option to Proceed\n >",
+            "options": [
+                {
+                    "text": "Start Game",
+                    "action": "spawnZone"
+                },
+                {
+                    "text": "Exit",
+                    "action": "leave"
+                }
+            ]
+        },
+        "spawnMenu": {
+            "type": 1,
+            "title": "Please Select a Starting Location",
+            "prompt": "Select an option to Proceed >",
+            "options": [
+                {
+                    "text": "Outskirts of Arvadale",
+                    "action": "spawn_city"
+                },
+                {
+                    "text": "Red Dragon Mountains",
+                    "action": "spawn_mountain"
+                },
+                {
+                    "text": "Magical Forest",
+                    "action": "spawn_forest"
+                }
+            ]
+        },
+        "gameMenu": {
+            "type": 2,
+            "prompt": "Select an option to Proceed\n >",
+            "options": [
+                {
+                    "text": "Move",
+                    "action": "move_choice"
+                },
+                {
+                    "text": "Examine Area",
+                    "action": "examine_area"
+                },
+                {
+                    "text": "Search Area",
+                    "action": "search_area"
+                },
+                {
+                    "text": "View Status",
+                    "action": "status"
+                },
+                {
+                    "text": "end your adventure",
+                    "action": "end_game"
+                }
+            ]
+        },
+        "gameMenu_NPC": {
+            "type": 6,
+            "prompt": "Select an option to Proceed\n >",
+            "options": [
+                {
+                    "text": "Move",
+                    "action": "move_choice"
+                },
+                {
+                    "text": "Examine Area",
+                    "action": "examine_area"
+                },
+                {
+                    "text": "Search Area",
+                    "action": "search_area"
+                },
+                {
+                    "text": "View Status",
+                    "action": "status"
+                },
+                {
+                    "text": "end your adventure",
+                    "action": "end_game"
+                }
+            ]
+        },
+        "moveMenu": {
+            "type": 3,
+            "prompt": "What Direction would you like to move?\n >",
+            "options": [
+                {
+                    "text": "Move North / Up",
+                    "action": "move_n"
+                },
+                {
+                    "text": "Move South / Down",
+                    "action": "move_s"
+                },
+                {
+                    "text": "Move East / Right",
+                    "action": "move_e"
+                },
+                {
+                    "text": "Move West / Left",
+                    "action": "move_w"
+                },
+                {
+                    "text": "go back",
+                    "action": "backtogame"
+                }
+            ]
+        },
+        "combatMenu": {
+            "prompt": "Select an option to Proceed\n >",
+            "options": [
+                {
+                    "text": "Attack",
+                    "action": "attack_choice"
+                },
+                {
+                    "text": "Heal",
+                    "action": "heal_choice"
+                },
+                {
+                    "text": "attempt to Negotiate",
+                    "action": "attempt_bargain"
+                },
+                {
+                    "text": "try to Run away",
+                    "action": "attempt_flee"
+                }
+            ]
+        },
+        "sandra": {
+            "type": 4,
+            "title": "Run away with Sandra?",
+            "prompt": "Select an option to Proceed\n >",
+            "options": [
+                {
+                    "text": "run away with the princess",
+                    "action": "runaway"
+                },
+                {
+                    "text": "tell her no",
+                    "action": "nope"
+                },
+                {
+                    "text": "think some more",
+                    "action": "backtogame"
+                }
+            ]
+        }
+        
+    },
+    "environments": {
+        "Onion Village, Baylent Kingdom": {
+            "description": "You walk into a quiet, peaceful village, where not much happens.",
+            "has_npc": "no",
+            "searchableInfo": "not much is happening here.",
+            "lootPool": ["Dirt", "Trash", "Scrapped Ideas", "Vial of Tears"],
+            "enemies": ["Mouse"],
+            "gridLocation": [0,0]
+        },
+        "Small Cave, Baylent Kingdom": {
+            "description": "You hear a faint howling coming from the direction of this cave\nYou head closer to check it out",
+            "has_npc": "no",
+            "searchableInfo": "There are wolves in the cave.",
+            "lootPool": ["Wolf Dung", "Wolf Skull", "Deer Meat", "Deer Skull", "Mouse Skeleton"],
+            "enemies": ["Wolf","Wolf","Wolf","Wolf","Frost Wolf"],
+            "gridLocation": [1,0]
+        },
+        "Arvadale City North Outskirts, Baylent Kingdom": {
+            "description": "The northern outskirts of the Capitol city of Arvadale of the Balent Kingdom",
+            "has_npc": "no",
+            "searchableInfo": "This seems to be where the guards and adventurers live.",
+            "lootPool": ["Sword", "Armor", "Training Manual", "Dirty Shirt", "Sock"],
+            "enemies": ["Thief"],
+            "gridLocation": [2,0]
+        },
+        "Dungeon of the Dead, Baylent Kingdom": {
+            "description": "",
+            "has_npc": "no",
+            "searchableInfo": "",
+            "lootPool": ["Bones", "Urn", "Worn Book", "Aged Cheese Wheel", "Gold Coin"],
+            "enemies": ["Necromancer", "Skeleton", "Zombie", "Skeleton", "Zombie", "Skeleton", "Zombie", "Skeleton", "Zombie", "Skeleton", "Zombie", "Skeleton", "Zombie"],
+            "gridLocation": [3,0]
+        },
+        "Damaged Teleportation Circle, Baylent Kingdom": {
+            "description": "The Ruins of an Old Teleportaion Cirle.\nIt looks older than the world itself.\nIt was probably great, when it worked.",
+            "has_npc": "no",
+            "searchableInfo": "You wonder if the Teleportation Circle ever worked.\n>>You curse the gods for not giving you this great gift.",
+            "lootPool": ["Vial of Tears"],
+            "enemies": ["Mouse"],
+            "gridLocation": [4,0]
+        },
+        "Dungeon of the Sword, Baylent Kingdom": {
+            "description": "There is an empty dungeon.\nYou head inside and find the end quickly.",
+            "has_npc": "no",
+            "searchableInfo": "There is a faded tapestry on the wall, it depicts a person holding a book and sword, with a shield on his back.",
+            "lootPool": ["Aincent Sword", "Old Key", "Gold Coin", "Midnight Cloak", "Red Magic Crystal"],
+            "enemies": ["Skeleton"],
+            "gridLocation": [0,1]
+        },
+        "Arvadale City West Outskirts, Baylent Kingdom": {
+            "description": "The western outskirts of the Capitol city of Arvadale of the Balent Kingdom",
+            "has_npc": "no",
+            "searchableInfo": "This appears to be a poorer part of town.\n>>You notice because there are no theives around.\n>>Even with the lack of theives, you are still being followed.",
+            "lootPool": ["Bronze Coin", "Royal Hairpin", "Rotten Apple"],
+            "enemies": ["Sandra Baylent"],
+            "gridLocation": [1,1]
+        },
+        "Arvadale City Center, Baylent Kingdom": {
+            "description": "The Center of the city, the castle where the royal family lives is close to where you are",
+            "has_npc": "yes",
+            "searchableInfo": "The King lives here in the city center, you think it would be nice to meet his daughter",
+            "lootPool": ["Fake Crown", "Gold Coin", "Small Marble Chunk", "Gold Bar", "Gold Key"],
+            "enemies": ["Royal Guard"],
+            "gridLocation": [2,1]
+        },
+        "Arvadale City East Outskirts, Baylent Kingdom": {
+            "description": "The eastern outskirts of the Capitol city of Arvadale of the Balent Kingdom",
+            "has_npc": "no",
+            "searchableInfo": "This appears to be a good area\n>>Shops are thriving, people are in the streets talking, and Adventurers are walking around.",
+            "lootPool": ["Trash", "Apple", "Beer", "Sword", "Gold Coin"],
+            "enemies": ["Thief"],
+            "gridLocation": [3,1]
+        },
+        "Goblin Camp, Baylent Kingdom": {
+            "description": "A small encampment of goblins.\nA terrible thing to have near your village. ",
+            "has_npc": "no",
+            "searchableInfo": "You read in a book somewhere that goblins are pretty weak creatures\n>>Hobgoblins are also pretty weak, but not as weak as goblins.",
+            "lootPool": ["Gold Coin", "Broken Sword", "Bones", "Stolen Coin Purse"],
+            "enemies": ["Goblin","Goblin","Goblin","Hobgoblin","Hobgoblin","Hobgoblin","Hobgoblin","Hobgoblin"],
+            "gridLocation": [4,1]
+        },
+        "Bandit Camp, Baylent Kingdom": {
+            "description": "A campgrounds of bandits.\nThere doesn't seem to be a leader here.",
+            "has_npc": "no",
+            "searchableInfo": "You Obserbe that the Bandits that enter the camp seem to be carrying magic crystals",
+            "lootPool": ["Red Magic Crystal", "Blue Magic Crystal", "Green Magic Crystal", "Stolen Coin Purse", "Thick Shirt"],
+            "enemies": ["Bandit","Mouse","Bandit"],
+            "gridLocation": [0,2]
+        },
+        "Erd Valley": {
+            "description": "A Valley formed by the Erd Mountain\nIt it lucious and green.\nThere is a lone elf wandering through the Valley.",
+            "has_npc": "yes",
+            "searchableInfo": "The Elf Is very beautiful.\n>>The view of Erd Mountain is even more so.",
+            "lootPool": ["Sun Flower", "Tall Grass", "Fern"],
+            "enemies": ["Deer","Wolf","Mouse"],
+            "gridLocation": [1,2]
+        },
+        "Arvadale City South Outskirts, Baylent Kingdom": {
+            "description": "The southern outskirts of the Capitol city of Arvadale of the Balent Kingdom\nYou don't like to be here.",
+            "has_npc": "no",
+            "searchableInfo": "This seems to be a wealthy part of town.\n>>You notice everyone around you has on fancier clothes",
+            "lootPool": ["Apple", "Teddy Bear", "Gold Coin", "Deer Meat", "Trash"],
+            "enemies": ["Thief","Skilled Thief"],
+            "gridLocation": [2,2]
+        },
+        "Glacier Lake, Baylent Kingdom": {
+            "description": "A Lake Basin, formed by the river flowing into it.\nYou think this lake could make for some good fishing!",
+            "has_npc": "no",
+            "searchableInfo": "You notice movement in what should be still water.\n>>It's probably filled with monsters.",
+            "lootPool": ["Blue Ice Shard", "Blue Magic Crystal", "Fish Bones", "Fish", "Fishing Rod"],
+            "enemies": ["Water Spirit","Cool Fish","Star Dolphin"],
+            "gridLocation": [3,2]
+        },
+        "Orc Campgrounds, Baylent Kingdom": {
+            "description": "You find youself in a camp ground of orcs.\nThey appear to be visiting the kingdom.",
+            "has_npc": "yes",
+            "searchableInfo": "There is one very angry looking Orc that seems to be the leader.",
+            "lootPool": ["Orc Horn", "Sword", "Shirt"],
+            "enemies": ["Mouse"],
+            "gridLocation": [4,2]
+        },
+        "Magic Crystal Mine, Red Dragon Mountains": {
+            "description": "An old magic crystal mine, situated in the side of Erd Mountain.\nYou notice bandits patrolling the area surrounding the mine.",
+            "has_npc": "no",
+            "searchableInfo": "The Bandits Seem to be looting the mine.",
+            "lootPool": ["Red Magic Crystal", "Blue Magic Crystal", "Gold Magic Crystal", "Green Magic Crystal"],
+            "enemies": ["Bandit", "Deer", "Bandit"],
+            "gridLocation":[0,3]
+        },
+        "Erd Mountain, Red Dragon Mountains": {
+            "description": "A mountain with a golden hue, the snow on top sparkles from a distance\nYou wonder what makes the mountain glow",
+            "has_npc": "no",
+            "searchableInfo": "Upon closer inspection, you find that what you thought was rock on the mountain is actually magic crystals, grinded into dust.",
+            "lootPool": ["Magic Crystal Dust", "Gold Magic Crystal", "Hard Stone"],
+            "enemies": ["Mountain Goat", "Goblin"],
+            "gridLocation":[1,3]
+        },
+        "Hollow Cliffs, Red Dragon Mountains": {
+            "description": "A set of Mountain Cliffs made up of very airy rock made from rapid heating and cooling",
+            "has_npc": "no",
+            "searchableInfo": "It seems like people have tried to climb down these cliffs before, but you doubt they made it",
+            "lootPool": ["Airy Rock", "Shoes"],
+            "enemies": ["Mountain Goat"],
+            "gridLocation":[2,3]
+        },
+        "North Glacier Stream, Red Dragon Mountains": {
+            "description": "You find yourself at a River, running through the mountains.\nYou could probably catch some fish if you needed to.",
+            "has_npc": "no",
+            "searchableInfo": "This river seems to flow towards the Baylent Kingdom far in the distance\n>>It goes uphill at times.",
+            "lootPool": ["Blue Ice Shard", "Blue Magic Crystal", "Fish"],
+            "enemies": ["Water Spirit", "Cool Fish","Mountain Goat"],
+            "gridLocation":[3,3]
+        },
+        "Cave of the Shield, Red Dragon Mountains": {
+            "description": "There is an empty cave.\nYou head inside and find the end quickly.",
+            "has_npc": "no",
+            "searchableInfo": "There is a faded hand painting on the wall, it depicts a person holding a book and sword, with a shield on his back.",
+            "lootPool": ["Gold Coin", "Worn Book", "Worn map"],
+            "enemies": ["Mouse"],
+            "gridLocation":[4,3]
+        },
+        "Broken Teleportation Circle, Red Dragon Mountains": {
+            "description": "The Ruins of an Old Teleportaion Cirle.\nIt looks older than the world itself.\nIt was probably great, when it worked.",
+            "has_npc": "no",
+            "searchableInfo": "You wonder if the Teleportation Circle ever worked.\n>>You curse the gods for not giving you this great gift.",
+            "lootPool": ["Vial of Tears", "Gold Coin", "Worn Book"],
+            "enemies": ["Mountain Goat", "Mouse"],
+            "gridLocation":[0,4]
+        },
+        "Small Cabin, Red Dragon Mountains": {
+            "description": "You Find a small cabin, with an older man inside.\n You think he noticed you coming long before any average person would.\n He invites you in.",
+            "has_npc": "yes",
+            "searchableInfo": "There is a book on the shelf, you get it down and read it. It tells about a method to kill god by finding three aincent artifacts hidden throughout the world",
+            "lootPool": ["Sunbracers", "Old Fire Spell Scroll","Healing Grenade"],
+            "enemies": ["Mouse"],
+            "gridLocation":[1,4]
+        },
+        "Red Dragon Mountains Center, Red Dragon Mountains": {
+            "description": "You stand in the middle of a massive mountain range seperating the Balent kingdom from the Magical Forest",
+            "has_npc": "no",
+            "searchableInfo": "Old tales speak of dragons once living in these mountains, but nobody has seen one in a long time, maybe they're just resting",
+            "lootPool": ["Sparkling Gem", "Old Scale", "Torn Cloth", "Worn map" ],
+            "enemies": ["Mountain Goat", "Mouse"],
+            "gridLocation":[2,4]
+        },
+        "Icy Glacier, Red Dragon Mountains": {
+            "description": "A Very Old Glacier.\nAll throughout the glacier you see frost wolves hunting mountain goats",
+            "has_npc": "no",
+            "searchableInfo": "You climb to the top of the glacier.\n>>You see two streams, one coming out of each side.\n>>The glacier must be melting",
+            "lootPool": ["Mountain Goat Skull", "Frozen Wolf Paw"],
+            "enemies": ["Frost Wolf", "Frost Wolf", "Frost Wolf","Mountain Goat","Mountain Goat"],
+            "gridLocation":[3,4]
+        },
+        "Dragon Rock, Red Dragon Mountains": {
+            "description": "You find yoursel at a huge rock.\nYou find it funny that it looks pretty close to a dragon.",
+            "has_npc": "no",
+            "searchableInfo": "You stop and wonder who carved this stone?\n>>Maybe it was naturaly formed like this?",
+            "lootPool": ["Dragon's Claw", "Old Scale"],
+            "enemies": ["Frost Wolf", "Boar", "Mountain Goat"],
+            "gridLocation":[4,4]
+        },
+        "Leviathan's Foot, Red Dragon Mountains": {
+            "description": "You see a massive hole.\nIt's probably wide enough to fit a small city in.",
+            "has_npc": "no",
+            "searchableInfo": "Legends say this massive hole was made by an aincent monster, as long as the continent.",
+            "lootPool": ["", "", "", "" ],
+            "enemies": ["Mountain Goat", "Mouse", "Boar"],
+            "gridLocation":[0,5]
+        },
+        "Massive Cavern, Red Dragon Mountains": {
+            "description": "There is a massive cave in the side of the mountain, right nearby. \nYou notice that there are no animals anywhere near the cavern, despite it being the perfect shelter. ",
+            "has_npc": "no",
+            "searchableInfo": "There is something inside the cavern. You think poking around this area any further might end badly.",
+            "lootPool": ["Human Skull", "Dragon's Claw", "Small Rock Pebble"],
+            "enemies": ["Dragon"],
+            "gridLocation":[1,5]
+        },
+        "Gold Mine, Red Dragon Mountains": {
+            "description": "A Old Gold Mine, forgotten by most.\nThe current inhabitants seem to include bandits.",
+            "has_npc": "no",
+            "searchableInfo": "You see bandits arriving at the mine, and most leave with a bag full of gold.",
+            "lootPool": ["Gold Bar", "Gold Coin", "Gold Ore", "Pickaxe"],
+            "enemies": ["Bandit", "Bandit", "Bandit", "Mouse","Thief"],
+            "gridLocation":[2,5]
+        },
+        "South Glacier River, Red Dragon Mountains": {
+            "description": "You find yourself at a River, running through the mountains.\nYou could probably catch some fish if you needed to.",
+            "has_npc": "no",
+            "searchableInfo": "This river seems to flow towards the magical forest far in the distance\n>>It goes uphill at times.",
+            "lootPool": ["Blue Ice Shard", "Blue Magic Crystal", "Fish"],
+            "enemies": ["Water Spirit", "Cool Fish"],
+            "gridLocation":[3,5]
+        },
+        "Frost Wolves Cave, Red Dragon Mountains": {
+            "description": "Nearby you see a cave filled with frost wolves. It would be pretty dsngerous to poke around here.",
+            "has_npc": "no",
+            "searchableInfo": "You wonder what creatures there are around this area that have enough of a population to feed these wolves.",
+            "lootPool": ["Wolf Dung", "Bones", "Sparkling Gem","Mountain Goat Skull"],
+            "enemies": ["Frost Wolf"],
+            "gridLocation":[4,5]
+        },
+        "Floating Islands, Magical Forest": {
+            "description": "There are islands floating in the sky.\nYou don't understand how they're floating, and you doubt anyone else does either",
+            "has_npc": "no",
+            "searchableInfo": "There doesn't seem to be a way to get to the islands from the ground without being able to fly.",
+            "lootPool": ["Chunk of Dirt", "Blue Magic Crystal"],
+            "enemies": ["Deer", "Boar", "Forest Spirit"],
+            "gridLocation": [0,6]
+        },
+        "Sunken Village, Magical Forest": {
+            "description": "You see a massive hole, and inside it a Village Sunken into the ground\nThere seems to be people living in the village, but you don't understand how.",
+            "has_npc": "no",
+            "searchableInfo": "The massive hole looks suspiciously like a footprint from some enormous creature",
+            "lootPool": ["Mystic Herb", "Sun Flower"],
+            "enemies": ["Deer", "Boar"],
+            "gridLocation": [1,6]
+        },
+        "Big Bandit Camp, Magical Forest": {
+            "description": "A Large Bandit Camp\nThere are many bandits around but one seems to be bigger than the rest.",
+            "has_npc": "no",
+            "searchableInfo": "You see Bandits occasionally Returning with bags full of Gold Ore",
+            "lootPool": ["Gold Ore", "Gold Coin", "Gold Bar"],
+            "enemies": ["Boss Bandit", "Bandit", "Bandit", "Bandit"],
+            "gridLocation": [2,6]
+        },
+        "Hermit's Home, Magical Forest": {
+            "description": "You come across a lonely lodge, and knock on the door.\nThe Man inside is suspicious of you, but lets you in.",
+            "has_npc": "yes",
+            "searchableInfo": "There is a painting on the wall of a little girl holding a dryad doll",
+            "lootPool": ["Worn map", "Broken Sword", "Small Shoes", "Dryad Doll"],
+            "enemies": ["Mouse","Bandit"],
+            "gridLocation": [3,6]
+        },
+        "Troll Thicket, Magical Forest": {
+            "description": "A dangerous part of the forest, infested with Trolls",
+            "has_npc": "no",
+            "searchableInfo": "You think the Trolls seem pretty stupid, but staying back is probably still safe.",
+            "lootPool": ["Club", "Torn Cloth", "Human Skull"],
+            "enemies": ["Troll","Troll","Troll","Troll","Troll","Deer","Boar"],
+            "gridLocation": [4,6]
+        },
+        "Labrynth of the Tome, Magical Forest": {
+            "description": "There is an empty labrynth.\nYou head inside and find the end quickly.",
+            "has_npc": "no",
+            "searchableInfo": "There is a faded mural on the wall, it depicts a person holding a book and sword, with a shield on his back.",
+            "lootPool": ["Aincent Tome", "Gold Coin", "Worn Book"],
+            "enemies": ["Mouse"],
+            "gridLocation": [0,7]
+        },
+        "Small Field, Magical Forest": {
+            "description": "You find yourself in the middle of a field in the middle of a Magical Forest",
+            "has_npc": "no",
+            "searchableInfo": "The trees here are rumored to be centuries old, hiding secrets of the past.",
+            "lootPool": ["Mystic Herb", "Sun Flower", "Sharp Talon"],
+            "enemies": ["Deer", "Mouse"],
+            "gridLocation": [1,7]
+        },
+        "Magical Forest Center": {
+            "description": "You stand in the middle of a vast, ancient forest with towering trees all around.",
+            "has_npc": "no",
+            "searchableInfo": "The trees here are rumored to be centuries old, hiding secrets of the past.",
+            "lootPool": ["Mystic Herb"],
+            "enemies": ["Forest Spirit", "Hidden Beast"],
+            "gridLocation": [2,7]
+        },
+        "Star Lake, Magical Forest": {
+            "description": "The Magic Crystals on the bottom of the lake shine very brightly\nAt Most times of day the light from the crystals plus the dark lake makes the lake look like a giant pool of stars. ",
+            "has_npc": "no",
+            "searchableInfo": "There is a small dock on the lake. I bet anyone who lives close by comes here often.",
+            "lootPool": ["Red Magic Crystal", "Fish", "Fishing Rod", "Fish Bones", "Soaked Book"],
+            "enemies": ["Water Spirit", "Cool Fish", "Star Dolphin"],
+            "gridLocation": [3,7]
+        },
+        "Small Goblin Camp, Magical Forest": {
+            "description": "A small encampment of goblins.\nA terrible thing to have near your village. ",
+            "has_npc": "no",
+            "searchableInfo": "You read in a book somewhere that goblins are pretty weak creatures",
+            "lootPool": ["Gold Coin", "Club", "Broken Sword", "Torn Cloth"],
+            "enemies": ["Goblin", "Hobgoblin"],
+            "gridLocation": [4,7]
+        },
+        "Moonlit Grove, Magical Forest": {
+            "description": "Night time in this part of the forest is more beautiful than anything.",
+            "has_npc": "no",
+            "searchableInfo": "There is a small stone with an enscription in the middle of the grove.\n>>It tells about a method to kill god by finding three aincent artifacts hidden throughout the world",
+            "lootPool": ["Poisonous Flower", "Moon Flower", "Mystic Herb"],
+            "enemies": ["Forest Spirit", "Deer","Boar"],
+            "gridLocation": [0,8]
+        },
+        "Elderwood Thick, Magical Forest": {
+            "description": "The Thickest part of the Forest",
+            "has_npc": "no",
+            "searchableInfo": "The trees here are rumored to be thousands of years old.\n>>you wonder about if these trees could speak what stories would they tell?",
+            "lootPool": ["Magical Wood", "Elderberry"],
+            "enemies": ["Deer", "Troll", "Dryad"],
+            "gridLocation": [1,8]
+        },
+        "Destroyed Village, Magical Forest": {
+            "description": "It looks like it was destroyed a long time ago.\nThere are huge gashes on many buildings and the ground.\nYou can still feel that a great people once lived here",
+            "has_npc": "no",
+            "searchableInfo": "This was Probably the Elven Village that was destroyed by the King of the Forest.",
+            "lootPool": ["Elven Scroll", "Old Dryad Doll"],
+            "enemies": ["Deer", "Hidden Beast","Deer","Deer"],
+            "gridLocation": [2,8]
+        },
+        "Busted Teleportation Circle, Magical Forest": {
+            "description": "The Ruins of an Old Teleportaion Cirle.\nIt looks older than the world itself.\nIt was probably great, when it worked.",
+            "has_npc": "no",
+            "searchableInfo": "You wonder if the Teleportation Circle ever worked.\n>>You curse the gods for not giving you this great gift.",
+            "lootPool": ["Vial of Tears", "Gold Coin", "Worn Book"],
+            "enemies": ["Deer", "Mouse"],
+            "gridLocation": [3,8]
+        },
+        "King's Labrynth, Magical Forest": {
+            "description": "The Home of the King of the Forest.\nYou think going near is a bad idea.",
+            "has_npc": "no",
+            "searchableInfo": "You've read that the King of the Forest is a Gryphon.",
+            "lootPool": ["Bones", "Fish Bones", "Long Feather", "Sharp Talon"],
+            "enemies": ["King of the Forest"],
+            "gridLocation": [4,8]
+        }
+    },
+    "playerCharacter": {
+        "Brom Crystalind": {
+            "attacks": ["Sword Slash","Sword Slash+","Dagger Slash","Dagger Slash+","Fireball","Water Ball","Air Palm","Mean Elbow"],
+            "health": 40
+        }
+    },
+    "characters": {
+        "Erynn Lightfoot": {
+            "description": "Elf, Appears to be a young woman, but being an Elf she is probably much older.",
+            "dialogue": ["I left the Magical Forest to just Adventure for fun.\n I've been on this journey for over 75 years.","you should really not be seeing this"],
+            "quest_dialogue": "Could you go and defeat the King of the Forest in the Magical Forest for me?\nI've heard recently he has been causing trouble, and I worry about the old man back home.",
+            "quest": "Slay the King of the Forest",
+            "gridLocation": [1,2]
+        },
+        "Osiris": {
+            "description": "Human, An older man. You don't understand how, but you can tell he is absurdly strong",
+            "dialogue": ["Flame is the one truth, the one belief we can all stick to.", "Why must the fires that burn the brighest fade the fastest?"],
+            "quest_dialogue": "I've been having trouble with a dragon nearby eating all the goats, would you go and slay it for me?\n If I was younger I would go go it myself, but I've gotten too old to fight an enemy that strong. ",
+            "quest": "Slay the Dragon",
+            "gridLocation": [1,4]
+        },
+        "Sandra Baylent": {
+            "description": "Human, Third Princess of the Baylent Kingdom. She is Very Beautiful",
+            "dialogue": ["I wanted to talk to you after you defeated me.","I can't believe you're so strong"],
+            "quest_dialogue": "I've been wanting to run away from the kingdom for a while now.\n But I've been worried about getting caught.\n But with another person, especially someone as strong and handsome as yourself, we could do it!\n So, You want to run away with me? Come find me when you have your answer.",
+            "quest": "Run away with Princess Sandra?",
+            "gridLocation": [2,1]
+        },
+        "Stonegrad Irons": {
+            "description": "Orc, Very Muscled. Very Stubborn.",
+            "dialogue": ["I'm on a quest for glory!","One day I'll return to my people as the strongest, and become Emperor of the orcs."],
+            "quest_dialogue": "I've been going around slaying dungeon bosses.\nThere is a Necromancer in a dungeon not far from here\nHe's been causing trouble, producing too many undead for me to progress in the dungeon.\nI'd like for you to try to defeat it so I can continue to the boss.",
+            "quest": "Slay the Necromancer",
+            "gridLocation": [4,2]
+        },
+        "James the Hermit": {
+            "description": "Elf, Very Old Hermit",
+            "dialogue": ["Farming in the forest is tough work, but it's how I live.","I raised a fellow elf a long time ago, after her parents were killed by the King of the Forest"],
+            "quest_dialogue": "Recently some bandits have been causing trouble near here.\n If it's not too much trouble, could you go and defeat their boss so they'll move away from here?\n It would really help us out",
+            "quest": "Slay the Boss of the Bandits",
+            "gridLocation": [3,6]
+        }
+    },
+    "enemies": {
+        "The End": {
+            "name": "The End",
+            "description": "??????????????????????????????",
+            "attacks": ["Judgement"],
+            "health": 1000 
+        },
+        "Goblin": {
+            "name": "Goblin",
+            "description": "A small, green-skinned creature fond of mischief.",
+            "attacks": ["Sword Slash","Goblin Slash","Clumsy Slash"],
+            "health": 10
+        },
+        "Hobgoblin": {
+            "name": "Hobgoblin",
+            "description": "A large, green-skinned creature fond of mischief.",
+            "attacks": ["Sword Slash+","Goblin Slash","Clumsy Slash","Overhead Sword Strike"],
+            "health": 10
+        },
+        "Mouse": {
+            "name": "Mouse",
+            "description": "A small creature.",
+            "attacks": ["Scratch"],
+            "health": 1
+        },
+        "Dragon": {
+            "name": "Dragon",
+            "description": "A massive beast with fiery breath. You probably shouldn't have poked around that cave.",
+            "attacks": ["Fireball+","Fireball+","Fireball++","Fireball++","Atomic Flame","Claw Slash+++","Claw Slash+++","Claw Slash++","Claw Slash++","Roar+++","Roar++","Roar+","Roar++"],
+            "health": 200
+        },
+        "Thief": {
+            "name": "Thief",
+            "description": "A no-good member of society, out to take your valubles",
+            "attacks": ["Dagger Slash", "Dagger Thrust", "Punch","Charge"],
+            "health": 15
+        },
+        "Skilled Thief": {
+            "name": "Skilled Thief",
+            "description": "A skilled, no-good member of society out to take your valubles",
+            "attacks": ["Dagger Slash+", "Dagger Thrust+", "Punch"],
+            "health": 25
+        },
+        "Bandit": {
+            "name": "Bandit",
+            "description": "A no-good member of society, out to take your valubles and your life.",
+            "attacks": ["Dagger Slash+", "Dagger Thrust+", "Haymaker"],
+            "health": 25
+        },
+        "Boss Bandit": {
+            "name": "Boss Bandit",
+            "description": "The Boss of the Bandits, Much Stronger than The rest.",
+            "attacks": ["Dagger Slash++", "Dagger Thrust++", "Dagger Slash+", "Dagger Thrust+", "Haymaker"],
+            "health": 50
+        },
+        "Frost Wolf": {
+            "name": "Frost Wolf",
+            "description": "a Wolf best suited to live in harsher, colder climates",
+            "attacks":["Frost Breath","Bite+","Bite","Claw Slash","Claw Slash+","Charge","Roar"],
+            "health": 35
+        },
+        "Forest Spirit": {
+            "name": "Forest Spirit",
+            "description": "A Guardian of the forest, unwelcoming of your presence",
+            "attacks": ["Leaf Cut", "Purifying Light", "Healing Spell"],
+            "health": 15
+        },
+        "Water Spirit": {
+            "name": "Water Spirit",
+            "description": "A Guardian of the forest, unwelcoming of your presence",
+            "attacks": ["Water Ball","Water Ball+", "Purifying Light", "Healing Spell","Healing Spell+"],
+            "health": 15
+        },
+        "Star Dolphin": {
+            "name": "Star Dolphin",
+            "description": "The one of the Toughest water monsters around.",
+            "attacks": ["Water Ball+","Water Ball+","Water Ball++", "Purifying Light", "Healing Spell","Healing Spell+"],
+            "health": 40
+        },
+        "Cool Fish": {
+            "name": "Cool Fish",
+            "description": "A semi-dangerous fish that prefers colder water.",
+            "attacks": ["Water Ball"],
+            "health": 10
+        },
+        "Hidden Beast": {
+            "name": "Hidden Beast",
+            "description": "A Hidden Beast, always lurking in the shadows just outside of your vision. It's species is unknown.",
+            "attacks": ["Claw Slash","Bite","Punch","Jab","Roar","Mean Elbow","Charge"],
+            "health": 25
+        },
+        "Skeleton": {
+            "name": "Skeleton",
+            "description": "An Undead, risen to the world again by some arcane magic. Like a Zombie with no flesh.",
+            "attacks": ["Tackle","Clumsy Slash","Jab","Shamble"],
+            "health": 15 
+        },
+        "Zombie": {
+            "name": "Zombie",
+            "description": "An Undead, risen to the world again by some arcane magic. Like a Skeleton with flesh.",
+            "attacks": ["Tackle","Punch","Charge","Bite","Shamble"],
+            "health": 20 
+        },
+        "Royal Guard": {
+            "name": "Royal Guard",
+            "description": "A guard of the Royal Family. Highly Trained in Combat, A extremely tough opponent",
+            "attacks": ["Overhead Sword Strike","Overhead Sword Strike+","Overhead Sword Strike++","Sword Slash+","Sword Slash++","Sword Slash","Charge"],
+            "health": 50 
+        },
+        "Necromancer": {
+            "name": "Necromancer",
+            "description": "Summoner and Ruler of the Undead",
+            "attacks": ["Necromancy","Lightning Palm","Clumsy Slash","Fireball+","Fireball+","Necromancy","Necromancy","Healing Spell+"],
+            "health": 35
+        },
+        "Deer": {
+            "name": "Deer",
+            "description": "A Regular Deer",
+            "attacks": ["Tackle","Charge","Tackle","Tackle","Tackle","Tackle","Tackle+","Tackle+"],
+            "health": 5 
+        },
+        "Dryad": {
+            "name": "Dryad",
+            "description": "The most powerful of all the spirits of the forest",
+            "attacks": ["Leaf Cut+", "Leaf Cut++", "Water Ball+","Water Ball++","Purifying Light","Healing Spell+","Air Palm+"],
+            "health": 70 
+        },
+        "Troll": {
+            "name": "Troll",
+            "description": "Similar to an Orc, but not Inteligent. Classified as a Monster.",
+            "attacks": ["Charge", "Mean Elbow++", "Mean Elbow+","Punch","Jab","Haymaker","Tackle","Tackle+"],
+            "health": 50 
+        },
+        "King of the Forest": {
+            "name": "King of the Forest",
+            "description": "The Boss of the Forest, A Giant Creature. Some Call it a Gryphon.",
+            "attacks": ["Claw Slash++","Claw Slash++","Bite+","Bite++","Claw Slash","Claw Slash+","Roar","Roar+","Roar++","Roar+++"],
+            "health": 100 
+        },
+        "Boar": {
+            "name": "Boar",
+            "description": "A Regular Boar. Still Pretty Dangerous.",
+            "attacks": ["Tackle+","Charge","Claw Slash","Bite","Bite+"],
+            "health": 25 
+        },
+        "Wolf": {
+            "name": "Wolf",
+            "description": "A Dangerous Wolf, Treat With Caution",
+            "attacks": ["Bite+","Claw Slash+","Roar+"],
+            "health": 35
+        },
+        "Mountain Goat": {
+            "name": "Mountain Goat",
+            "description": "Regular Mountain Goat",
+            "attacks": ["Tackle","Tackle+","Charge"],
+            "health": 20 
+        },
+        "Sandra Baylent": {
+            "name": "Sandra Baylent",
+            "description": "3rd Princess of Balent Kingdom?! What is She Doing Picking a Fight???",
+            "attacks": ["Dagger Slash+","Dagger Slash","Dagger Slash++","Dagger Thrust","Dagger Thrust+","Dagger Thrust++","Healing Spell++"],
+            "health": 50 
+        }
+    },
+    "attacks": {
+        "default": {
+            "description": "",
+            "damageRange": []
+        },
+        "Scratch": {
+            "description": "A very small scratch. You find it doesnt hurt at all.",
+            "damageRange": [0,0]
+        },
+        "Goblin Slash": {
+            "description": "A clumsy slash with a stolen, damaged blade.",
+            "damageRange": [2, 5]
+        },
+        "Clumsy Slash": {
+            "description": "A clumsy slash with a damaged, salvaged blade.",
+            "damageRange": [2, 5]
+        },
+        "Fireball": {
+            "description": "A fiery ball that engulfs a target.",
+            "damageRange": [8, 15]
+        },
+        "Fireball+": {
+            "description": "A large fiery ball that engulfs a target, burning them to a crisp",
+            "damageRange": [16, 30]
+        },
+        "Fireball++": {
+            "description": "A massive fiery ball that engulfs a target, turning them to ash",
+            "damageRange": [24, 60]
+        },
+        "Fireball+++": {
+            "description": "A massive fiery ball that engulfs a target, turning them to ash",
+            "damageRange": [32, 120]
+        },
+        "Dagger Slash": {
+            "description": "A swift slash with a short, sharp blade.",
+            "damageRange": [1,7]
+        },
+        "Dagger Slash+": {
+            "description": "A very swift slash with a short, but very sharp blade.",
+            "damageRange": [2,14]
+        },
+        "Dagger Slash++": {
+            "description": "A Lightning Fast slash with a short, but Razor Sharp Blade.",
+            "damageRange": [3,28]
+        },
+        "Sword Slash": {
+            "description": "A swift slash with a sharp blade.",
+            "damageRange": [4,8]
+        },
+        "Sword Slash+": {
+            "description": "A very swift slash with a very sharp blade.",
+            "damageRange": [8,16]
+        },
+        "Sword Slash++": {
+            "description": "A Lightning Fast slash with a Razor Sharp Blade.",
+            "damageRange": [12,32]
+        },
+        "Dagger Thrust": {
+            "description": "A swift Thrust with a short, sharp blade.",
+            "damageRange": [4,6]
+        },
+        "Dagger Thrust+": {
+            "description": "A swift Thrust with a short, sharp blade.",
+            "damageRange": [8,12]
+        },
+        "Dagger Thrust++": {
+            "description": "A swift Thrust with a short, sharp blade.",
+            "damageRange": [12,24]
+        },
+        "Punch": {
+            "description": "A Normal, Average Punch",
+            "damageRange": [2,4]
+        },
+        "Haymaker": {
+            "description": "A Hard Hitting, Strong Punch",
+            "damageRange": [4,8]
+        },
+        "Jab": {
+            "description": "A swift jab with the fist",
+            "damageRange": [1,3]
+        },
+        "Overhead Sword Strike": {
+            "description": "A swift overhead slash with a sharp blade.",
+            "damageRange": [7,10]
+        },
+        "Overhead Sword Strike+": {
+            "description": "A swift overhead slash with a sharp blade.",
+            "damageRange": [14,20]
+        },
+        "Overhead Sword Strike++": {
+            "description": "A swift overhead slash with a sharp blade.",
+            "damageRange": [21,40]
+        },
+        "Overhead Sword Strike+++": {
+            "description": "A swift overhead slash with a sharp blade.",
+            "damageRange": [28,80]
+        },
+        "Atomic Flame": {
+            "description": "The Same Fires at the center of the Sun, focused entirely on a target.",
+            "damageRange": [50,250]
+        },
+        "Tackle": {
+            "description": "A Tackle",
+            "damageRange": [2,4]
+        },
+        "Tackle+": {
+            "description": "A Hard Tackle",
+            "damageRange": [4,8]
+        },
+        "Tackle++": {
+            "description": "An even Harder Tackle",
+            "damageRange": [6,16]
+        },
+        "Mean Elbow": {
+            "description": "A Hard Elbow to the Head",
+            "damageRange": [4,9]
+        },
+        "Mean Elbow+": {
+            "description": "A Very Hard Elbow to the Head",
+            "damageRange": [8,18]
+        },
+        "Mean Elbow++": {
+            "description": "An Extremely Hard Elbow to the Head",
+            "damageRange": [12,36]
+        },
+        "Frost Breath": {
+            "description": "Breathes Frost at the Target",
+            "damageRange": [5,13]
+        },
+        "Miniature Supernova": {
+            "description": "Throws a Nano-Singularity at the target that implodes on impact",
+            "damageRange": [12,30]
+        },
+        "Air Palm": {
+            "description": "Casts a shockwave of Air foreward from the palm, damaging the target's internals",
+            "damageRange": [4,14]
+        },
+        "Air Palm+": {
+            "description": "Casts a shockwave of Air foreward from the palm, damaging the target's internals",
+            "damageRange": [8,28]
+        },
+        "Air Palm++": {
+            "description": "Casts a shockwave of Air foreward from the palm, damaging the target's internals",
+            "damageRange": [12,56]
+        },
+        "Charge": {
+            "description": "builds up speed and hits the target with their full weight",
+            "damageRange": [7,11]
+        },
+        "Water Ball": {
+            "description": "the user summons and compacts a ball of water, launching it at the target",
+            "damageRange": [3,9]
+        },
+        "Water Ball+": {
+            "description": "the user summons and compacts a ball of water, launching it at the target even faster",
+            "damageRange": [6,18]
+        },
+        "Water Ball++": {
+            "description": "the user summons and compacts a ball of water, launching it at the target extremely fast",
+            "damageRange": [9,36]
+        },
+        "Healing Spell": {
+            "description": "A basic spell that slightly heals the user",
+            "damageRange": [-5,-2]
+        },
+        "Healing Spell+": {
+            "description": "An intermediate spell that heals the user",
+            "damageRange": [-10,-5]
+        },
+        "Healing Spell++": {
+            "description": "An Advanced spell that greatly heals the user",
+            "damageRange": [-50,-10]
+        },
+        "Healing Spell+++": {
+            "description": "An Ultimate spell that fully heals the user",
+            "damageRange": [-999,-999]
+        },
+        "Purifying Light": {
+            "description": "The light of the heavens washes over the target, deeming them unworthy",
+            "damageRange": [5,6]
+        },
+        "Leaf Cut": {
+            "description": "The Spirit gathers leaves from the surroundings with air magic and hurls them at you at high speeds, causing many small cuts",
+            "damageRange": [2,9]
+        },
+        "Leaf Cut+": {
+            "description": "The Spirit gathers leaves from the surroundings with air magic and hurls them at you at high speeds, causing many small cuts",
+            "damageRange": [4,18]
+        },
+        "Leaf Cut++": {
+            "description": "The Spirit gathers leaves from the surroundings with air magic and hurls them at you at high speeds, causing many small cuts",
+            "damageRange": [6,36]
+        },
+        "Claw Slash": {
+            "description": "A swift slash with a sharp claw.",
+            "damageRange": [4,12]
+        },
+        "Claw Slash+": {
+            "description": "A very swift slash with a razor sharp claw.",
+            "damageRange": [8,24]
+        },
+        "Claw Slash++": {
+            "description": "A Lightning fast slash with a deadly sharp claw.",
+            "damageRange": [12,48]
+        },
+        "Claw Slash+++": {
+            "description": "A Faster than Lightning swipe with a deadly sharp dragon's claw.",
+            "damageRange": [16,96]
+        },
+        "Bite": {
+            "description": "Bites the Target.",
+            "damageRange": [3,6]
+        },
+        "Bite+": {
+            "description": "Bites the Target. Hard.",
+            "damageRange": [6,12]
+        },
+        "Bite++": {
+            "description": "Bites the Target. Very Hard.",
+            "damageRange": [9,24]
+        },
+        "Bite+++": {
+            "description": "Bites the Target. Impossibly Hard",
+            "damageRange": [12,48]
+        },
+        "Roar": {
+            "description": "Roars powerfully at the Target, causing damage",
+            "damageRange": [1,5]
+        },
+        "Roar+": {
+            "description": "Roars powerfully at the Target, causing damage",
+            "damageRange": [2,10]
+        },
+        "Roar++": {
+            "description": "Roars powerfully at the Target, causing damage",
+            "damageRange": [3,20]
+        },
+        "Roar+++": {
+            "description": "Roars powerfully at the Target, causing damage",
+            "damageRange": [4,40]
+        },
+        "Shamble": {
+            "description": "A Classic Undead Move, It barely does a thing but it sure looks eerie",
+            "damageRange": [0,1]
+        },
+        "Necromancy": {
+            "description": "Summons Many Undead to attack the Target",
+            "damageRange": [10,100]
+        },
+        "Lightning Palm": {
+            "description": "Shoots Lightning from The Palms at the Target",
+            "damageRange": [20,40]
+        },
+        "Lightning Palm+": {
+            "description": "Shoots More Lightning from The Palms at the Target",
+            "damageRange": [40,80]
+        },
+        "Judgement": {
+            "description": "Judge, Jury, Executioner. Alpha. Omega. The Beginning, and The End.",
+            "damageRange": [-999999,9999]
+        }
+    }
+}
+
