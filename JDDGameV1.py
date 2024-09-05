@@ -1,4 +1,4 @@
-from CS103.FinalProject.JDDMenu_v2_5 import * 
+from JDDMenu_v2_5 import * 
 import random
 import sys
 import cmd
