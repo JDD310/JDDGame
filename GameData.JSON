@@ -159,7 +159,7 @@
             "description": "You walk into a quiet, peaceful village, where not much happens.",
             "has_npc": "no",
             "searchableInfo": "not much is happening here.",
-            "lootPool": ["Dirt", "Trash", "Scrapped Ideas", "Vial of Tears"],
+            "lootPool": ["Trash", "Scrapped Ideas", "Vial of Tears"],
             "enemies": ["Mouse"],
             "gridLocation": [0,0]
         },
@@ -514,6 +514,69 @@
             "lootPool": ["Bones", "Fish Bones", "Long Feather", "Sharp Talon"],
             "enemies": ["King of the Forest"],
             "gridLocation": [4,8]
+        }
+    },
+    "items": {
+        "Copper Coin": {
+            "id": 1,
+            "type": "money",
+            "value": 1
+        },
+        "Silver Coin": {
+            "id": 2,
+            "type": "money",
+            "value": 10
+        },
+        "Gold Coin": {
+            "id": 3,
+            "type": "money",
+            "value": 100
+        },
+        "Platinum Coin": {
+            "id": 4,
+            "type": "money",
+            "value": 1000
+        },
+        "Adamantite Coin": {
+            "id": 5,
+            "type": "money",
+            "value": 10000 
+        },
+        "Mithril Coin": {
+            "id": 6,
+            "type": "money",
+            "value": 100000
+        },
+        "Broken Sword": {
+            "id": 7,
+            "type": "equip",
+            "value": 4
+        },
+        "Sunbracers": {
+            "id": 8,
+            "type": "equip",
+            "value": 7500,
+            "desc": "A pair of gauntlets that flow with plasma throught.\nLike wearing a small sun on your wrists."
+        },
+        "Red Magic Crystal": {
+            "id": 9,
+            "type": "def",
+            "value": "350"
+        },
+        "Blue Magic Crystal": {
+            "id": 9,
+            "type": "def",
+            "value": "350"
+        },
+        "Green Magic Crystal": {
+            "id": 9,
+            "type": "def",
+            "value": "350"
+        },
+        "Gold Magic Crystal": {
+            "id": 9,
+            "type": "def",
+            "value": "350"
         }
     },
     "playerCharacter": {
@@ -986,4 +1049,3 @@
         }
     }
 }
-

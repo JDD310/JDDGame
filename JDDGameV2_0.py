@@ -11,6 +11,83 @@ Instructions for use:
     - Make sure JDDMenu_v2_6 is in the same file as your Copy of the Game so that it can be easily imported.
 
     - Please email jdd310@gmail.com with the subject line "JDDGame_Bug" if you find any bugs.
+
+    Goals For Future of this Project
+    ----------------------------------
+
+    Uncompleted Goals - Marked with #TODO or #subTODO
+    Work in Progress Goals - Marked with #WIP
+    Completed Goals - Marked with #DONE
+
+        DONE Upload to Github
+        TODO Port to Java
+            * I want to do this for two reasons, I need to learn java and this is a perfect way to do it, and 
+              porting to java could help make this easier to work on, because i actually have access to real object oriented
+              programming instead of just kind of bastardizing it which is what i feel like i've been doing so far. 
+        TODO Impliment Save States. 
+            * I want a player to be able to save their game state to the machine, and be able to load it at any time. 
+            * Implimenting auto-saving would probably be too much, but doing it manually could help me a lot.
+        TODO Combat Overhaul 
+            * There are a couple of things i want to do to combat, they will each have their own todo under this banner.
+            subTODO Make combat player controled
+                #NOTE Will need to create a new menu for this.
+                * The player should be able to control combat as opposed to currently where it is done automatically
+                  by the program; Classic RPG options should work.
+                subTODO Allow players to attempt to run from combat
+                    * Similar to pokemon players should be able to run from combat if the enemy 
+                      is too strong. May end up removing this if save states are properly implimented
+                subTODO Allow Players to Heal during their turn in combat using items
+                    * Items need more use. this is a natural progression, and will also make the game more enjoyable.
+            subTODO Add the ability to learn new moves
+                * Shouldn't be too hard, iirc i already have the framework, or at least ideas. will have to check.
+            subTODO Add EXP Values to Enemies depending on their stregnth
+                * Enemies should drop exp when killed.
+            subTODO make the moves avalable to the player in combat change based on current build
+                * Might not do this, it would be cool but it seems like a gargantuan ammount of work
+        TODO Item Overhaul
+            subTODO Need to add an equipment system
+                * I want the player to be able to get stronger, not just by learning new moves but by getting items.
+            subTODO Add a shop for players to spend gold and sell items
+                #LEARN Will need to figure this out.
+                * I have no idea where to start with this but I think it would be neat.
+            subTODO Crafting System.
+                * Self Explanatory. Player should be able to 
+            subTODO Add/Remove Items
+                * Go over items and add/remove based on need and importance to game
+        TODO Environmental Overhaul
+            subTODO Expand map
+                * with all of these new additions i'm going to need a bigger map. really as big as i can get it, i might
+                even write a program to help with this. 
+            #NOTE I may end up locking parts of the map behind level barriers.
+                * This would decrease freedom, but possibly result in a more fun end experience because the 
+                  player would not accidentally wander into areas that have enemies far stronger than they are. 
+            subTODO Fix/Expand Quest System
+                * IIRC i wasn't very happy with how the quest system turned out, it needs to be done better.
+            subTODO NPCS
+                * With the planned changes, there needs to be more NPCS.
+                * i also need to probably work on the existing ones. 
+        TODO Player Character Overhaul
+            * Player needs development to allow for more freedom for the user
+            subTODO Add ability for player to name their own Character
+                * Self Explanatory, Would be nice for people to be able to play as any character they want.
+            subTODO Add Leveling System
+                * The player should be able to level up as they progress through the game.
+                * Health should be the most basic increase that goes up as leveling does, but i
+                  may impliment moves getting stronger as well. i'll have to determine if that is a 
+                  viable option before true implimentation.
+            subTODO Add a way for the player to use items while not in combat
+                * Can't remember if players heal after battle but if they don't i need to add a way for players to heal
+                after battles, similar to pokemon
+                #NOTE Will require addition to menu
+
+        TODO Add Graphics
+            * This is in the last spot because I am genuinely conflicted on wether or not to do it
+              it would probably be the most difficult thing on this list, only because i genuinely have no idea
+              where to even start.
+            #NOTE Shelving this idea until everything else is done, because its such a huge undertaking.
+            subTODO Add graphical interface for program
+                * Even if i dont add full graphics, an interface for the program to run out of instead of just the
+                  terminal would probably help a lot for the user's end experience. 
 """
 
 class GameState: 
